@@ -3,8 +3,8 @@
 #include <cstring>
 #include <vector>
 #include <stdio.h>
-
 using namespace std;
+#include "boyer moore.cpp"
 
 int lineNumber;
 int lines=1;
@@ -232,13 +232,15 @@ int main()
     gb.initializeArray();
     int choice;
 
-   while(1){
+
 
    cout << " Select from below: " << endl;
    cout << "1. Enter text normally." << endl;
    cout << "2. to grow." << endl;
    cout << "3. to insert text at a specific position." << endl;
    cout << "4. Display buffer." << endl;
+   cout <<"5.Search Text."<<endl;
+   cout <<"6.Replace."<<endl;
    cin >> choice;
 
    switch(choice){
@@ -255,6 +257,13 @@ int main()
     case 4:
         gb.displayBuffer(gb.buffer);
         break;
+    case 5:
+    	
+		search_position("ABCDEHABC","ABC") ;   
+		break;
+	case 6:
+		replace_string("ABCDEHABC","ABC", "abc") ;   
+		break;	
     default:
         cout << "invalid" << endl;
    }
@@ -262,7 +271,5 @@ int main()
     cout << len  << endl;
     cout << paragraph << endl;
 
-
-   }
     return 0;
 }
